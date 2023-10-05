@@ -22,14 +22,14 @@ module.exports.showCampground = async (req, res,) => {
     const campground = await Campground.findById(req.params.id).populate({
         path: 'reviews',
         populate: {
-            path: "body",
+            path:'body',
             options: { strictPopulate: false }
         }, 
         options: { strictPopulate: false }
     }).populate({
-        path: 'author',
+        path: 'reviews',
         populate: {
-            path: "username",
+            path: "author",
             options: { strictPopulate: false }
         }, 
         options: { strictPopulate: false }
