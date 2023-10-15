@@ -1,4 +1,3 @@
-
 const mongoose = require('mongoose');
 const cities = require('./cities');
 const{places,descriptors} = require('./seedHelpers');
@@ -45,15 +44,22 @@ const seedDB = async () => {
         title: `${sample(descriptors)} ${sample(places)}`,
         description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil animi doloremque exercitationem? Numquam dolores aut architecto cupiditate? Nisi vitae est provident aperiam repudiandae, magni accusamus et quisquam deserunt nostrum. Sit.',
         price,
+        geometry: {
+         type: 'Point',
+            coordinates: [
+                cities[random150].longitude,
+                cities[random150].latitude,
+              ]
+            },
         images: [
           {
-            url: 'https://res.cloudinary.com/dwumsujww/image/upload/v1696758621/TheCampingNomad/bheox3ooumttdfjkljea.jpg',
-            filename: 'TheCampingNomad/bheox3ooumttdfjkljea'
+            url: 'https://res.cloudinary.com/dwumsujww/image/upload/v1697269961/TheCampingNomad/campground2_eowt45.jpg',
+            filename: 'TheCampingNomad/campground2_eowt45'
             
           },
           {
-            url: 'https://res.cloudinary.com/dwumsujww/image/upload/v1696758623/TheCampingNomad/pidg7wsqdke5hbisyfmf.jpg',
-            filename: 'TheCampingNomad/pidg7wsqdke5hbisyfmf'
+            url: 'https://res.cloudinary.com/dwumsujww/image/upload/v1697269947/TheCampingNomad/campground1_fgxvoi.jpg',
+            filename: 'TheCampingNomad/campground1_fgxvoi'
             
           }
         ]
