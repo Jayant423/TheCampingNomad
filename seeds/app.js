@@ -35,20 +35,20 @@ const seedDB = async () => {
     await Campground.deleteMany({});
     
     // Create a new Campground document and save it
-   for (let i = 0;i<48;i++){
-    const random1000 = Math.floor(Math.random() * 1000);
+   for (let i = 0;i<120;i++){
+    const random140 = Math.floor(Math.random() * 150);
     const price = Math.floor(Math.random() *20) + 10;
     const camp = new Campground({
       author: '651a2e0852ca3b4720f5042d',
-        location: `${cities[random1000].city}, ${cities[random1000].state}`,
+        location: `${cities[random140].city}, ${cities[random140].state}`,
         title: `${sample(descriptors)} ${sample(places)}`,
         description: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil animi doloremque exercitationem? Numquam dolores aut architecto cupiditate? Nisi vitae est provident aperiam repudiandae, magni accusamus et quisquam deserunt nostrum. Sit.',
         price,
         geometry: {
          type: 'Point',
             coordinates: [
-                cities[random150].longitude,
-                cities[random150].latitude,
+                cities[random140].longitude,
+                cities[random140].latitude,
               ]
             },
         images: [
