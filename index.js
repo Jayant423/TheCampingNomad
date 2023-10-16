@@ -13,6 +13,7 @@ const methodOverride = require('method-override');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
+const mongoSanitize = require('express-mongo-sanitize');
 
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
@@ -41,6 +42,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(express.urlencoded({extended:true}));
 app.use(methodOverride('_method'));
+app.use(mongoSanitize());
 
 const sessionConfig = {
     secret: 'thisshouldbeabettersecret',
@@ -54,6 +56,7 @@ const sessionConfig = {
 }
 app.use(session(sessionConfig))
 app.use(flash());
+
 
 app.use(passport.initialize());
 app.use(passport.session());
